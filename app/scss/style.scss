@@ -1,10 +1,39 @@
-@import 'vars';
-@import 'fonts';
-@import 'reset';
-@import 'global';
+@import "vars";
+@import "fonts";
+@import "reset";
+@import "global";
 
+.header {
+   padding: 40px 0;
+   &__inner {
+      display: flex;
+      justify-content: space-between;
+   }
+}
 
+.menu {
+   &__list {
+      display: flex;
+   }
 
+   &__list-item + .menu__list-item {
+      margin-left: 35px;
+   }
 
+   &__list-link {
+      color: $title;
+      padding-bottom: 1px;
+      transition: all 0.3s;
+      &:hover {
+         color: $accent;
+         border-bottom: 1px solid $accent;
+      }
+   }
 
-@import 'media';
+   &__list-link--active {
+      color: $accent;
+      border-bottom: 1px solid $accent;
+   }
+}
+
+@import "media";
