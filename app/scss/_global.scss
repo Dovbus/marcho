@@ -1,5 +1,5 @@
 body {
-   font-family: Quicksand;
+   @extend %quicksand-400;
    font-size: 16px;
    line-height: 26px;
    font-weight: 500;
