@@ -130,6 +130,36 @@ footer {
       max-width: 320px;
       width: 100%;
       border: none;
+      padding: 12px 10px 15px;
+      box-shadow: 0px 7px 20px 0px rgba(192, 192, 192, 0.3);
+      &::placeholder {
+         color: $default;
+         font-size: 16px;
+      }
+   }
+   &__form-btn {
+      border: none;
+      padding: 12px 20px 15px;
+      background-color: $accent;
+      box-shadow: 0px 7px 20px 0px rgba(255, 17, 48, 0.3);
+      @extend %roboto-400;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #ffffff;
+      cursor: pointer;
+   }
+}
+
+.footer-bottom {
+   height: 75px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   font-size: 12px;
+   &__accept-img {
+      display: inline;
+      vertical-align: middle;
+      margin-left: 25px;
    }
 }
 
