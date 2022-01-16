@@ -11,60 +11,61 @@ import gulpSass from 'gulp-sass';
 const scss = gulpSass(dartSass);
 
 function browsersync() {
-	browserSync.init({
-		server: {
-			baseDir: 'app/'
-		},
-		notify: false,
-	})
+   browserSync.init({
+      server: {
+         baseDir: 'app/'
+      },
+      notify: false,
+   })
 }
 
 function styles() {
-	return gulp.src("app/scss/style.scss")
-		.pipe(scss({ outputStyle: "compressed" }))
-		.pipe(concat("style.min.css"))
-		.pipe(
-			autoprefixer({
-				overrideBrowserslist: ["last 10 versions"],
-				grid: true,
-			})
-		)
-		.pipe(gulp.dest("app/css"))
-		.pipe(browserSync.stream())
+   return gulp.src("app/scss/style.scss")
+      .pipe(scss({ outputStyle: "compressed" }))
+      .pipe(concat("style.min.css"))
+      .pipe(
+         autoprefixer({
+            overrideBrowserslist: ["last 10 versions"],
+            grid: true,
+         })
+      )
+      .pipe(gulp.dest("app/css"))
+      .pipe(browserSync.stream())
 }
 
 function images() {
-	return gulp.src('app/images/**/*.*')
-		.pipe(imagemin())
-		.pipe(gulp.dest('dist/images/'))
+   return gulp.src('app/images/**/*.*')
+      .pipe(imagemin())
+      .pipe(gulp.dest('dist/images/'))
 }
 
 function scripts() {
-	return gulp.src([
-		'node_modules/jquery/dist/jquery.js',
-		"app/js/main.js"])
-		.pipe(concat("main.min.js"))
-		.pipe(uglify())
-		.pipe(gulp.dest('app/js'))
-		.pipe(browserSync.stream())
+   return gulp.src([
+      'node_modules/jquery/dist/jquery.js',
+      'node_modules/slick-carousel/slick/slick.js',
+      "app/js/main.js"])
+      .pipe(concat("main.min.js"))
+      .pipe(uglify())
+      .pipe(gulp.dest('app/js'))
+      .pipe(browserSync.stream())
 }
 
 function build() {
-	return gulp.src([
-		'app/**/*.html',
-		'app/css/style.min.css',
-		'app/js/main.min.js'
-	], { base: 'app' }).pipe(gulp.dest('dist'))
+   return gulp.src([
+      'app/**/*.html',
+      'app/css/style.min.css',
+      'app/js/main.min.js'
+   ], { base: 'app' }).pipe(gulp.dest('dist'))
 }
 
 function cleanDist() {
-	return del('dist')
+   return del('dist')
 }
 
 function watching() {
-	gulp.watch(["app/scss/**/*.scss"], styles)
-	gulp.watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts)
-	gulp.watch(['app/**/*.html']).on('change', browserSync.reload)
+   gulp.watch(["app/scss/**/*.scss"], styles)
+   gulp.watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts)
+   gulp.watch(['app/**/*.html']).on('change', browserSync.reload)
 }
 
 
