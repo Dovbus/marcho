@@ -81,4 +81,4 @@ export const cleanDistRun = cleanDist;
 export const buildRun = gulp.series(cleanDist, images, build)
 
 
-export const defaultRun = gulp.parallel(styles, scripts, browsersync, watching)
+export const defaultrun = gulp.parallel(styles, scripts, browsersync, watching)
