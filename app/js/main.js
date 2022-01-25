@@ -7,6 +7,20 @@ $(function () {
       autoSpead: 2000,
    });
 
+   const videoPlay = document.querySelector('.video-fashion__play-img');
+   videoPlay.addEventListener('mouseover', function () {
+      setTimeout(() => {
+         videoPlay.src = '../images/icons/play-hover.png';
+      }, 100)
+
+    })
+    videoPlay.addEventListener('mouseout', function () {
+       setTimeout(() => {
+          videoPlay.src = '../images/icons/play-btn.png';
+       }, 100)
+
+    })
+
    $(".star").rateYo({
       starWidth: "17px",
       normalFill: "#ccccce",
