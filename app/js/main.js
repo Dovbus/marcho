@@ -1,4 +1,18 @@
 $(function () {
+
+   $('.filter-price__input').ionRangeSlider({
+      type: "double",
+      prefix: "$",
+      onStart: function (data){
+         $('.filter-price__from').text(data.from);
+         $('.filter-price__to').text(data.to);
+      },
+      onChange: function (data) {
+         $('.filter-price__from').text(data.from);
+         $('.filter-price__to').text(data.to);
+      },
+   })
+
    $('.top-slider__inner').slick({
       dots: true,
       arrows: false,
@@ -6,20 +20,6 @@ $(function () {
       autoplay: true,
       autoSpead: 2000,
    });
-
-   const videoPlay = document.querySelector('.video-fashion__play-img');
-   videoPlay.addEventListener('mouseover', function () {
-      setTimeout(() => {
-         videoPlay.src = '../images/icons/play-hover.png';
-      }, 100)
-
-    })
-    videoPlay.addEventListener('mouseout', function () {
-       setTimeout(() => {
-          videoPlay.src = '../images/icons/play-btn.png';
-       }, 100)
-
-    })
 
    $(".star").rateYo({
       starWidth: "17px",
@@ -70,4 +70,18 @@ $(function () {
 
    const deadline = $('.promo__clock').attr('data-time');
    initializeClock('.promo__clock', deadline);
+})
+
+const videoPlay = document.querySelector('.video-fashion__play-img');
+videoPlay.addEventListener('mouseover', function () {
+   setTimeout(() => {
+      videoPlay.src = '../images/icons/play-hover.png';
+   }, 100)
+
+})
+videoPlay.addEventListener('mouseout', function () {
+   setTimeout(() => {
+      videoPlay.src = '../images/icons/play-btn.png';
+   }, 100)
+
 })
