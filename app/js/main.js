@@ -1,5 +1,20 @@
 $(function () {
 
+   $('.shop-content__filter-btn').on('click', function (){
+      $('.shop-content__filter-btn').removeClass('shop-content__filter-btn--active');
+      $(this).addClass('shop-content__filter-btn--active');
+   });
+
+   $('.button-list').on('click', function (){
+      $('.product-item').addClass('product-item--list');
+   })
+
+   $('.button-grid').on('click', function (){
+      $('.product-item').removeClass('product-item--list');
+   })
+
+   $('.select-style').styler();
+
    $('.filter-price__input').ionRangeSlider({
       type: "double",
       prefix: "$",
@@ -70,18 +85,16 @@ $(function () {
 
    const deadline = $('.promo__clock').attr('data-time');
    initializeClock('.promo__clock', deadline);
-})
 
-const videoPlay = document.querySelector('.video-fashion__play-img');
-videoPlay.addEventListener('mouseover', function () {
-   setTimeout(() => {
-      videoPlay.src = '../images/icons/play-hover.png';
-   }, 100)
+   $('.video-fashion__play-img').on('mouseover', function (){
+      setTimeout(() => {
+         $('.video-fashion__play-img').src = '../images/icons/play-hover.png';
+      }, 100)
+   });
 
-})
-videoPlay.addEventListener('mouseout', function () {
-   setTimeout(() => {
-      videoPlay.src = '../images/icons/play-btn.png';
-   }, 100)
-
+   $('.video-fashion__play-img').on('mouseout', function (){
+      setTimeout(() => {
+         $('.video-fashion__play-img').src = '../images/icons/play-btn.png';
+      }, 100)
+   })
 })

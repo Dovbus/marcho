@@ -346,6 +346,88 @@
 
 .product-item{
    max-width: 370px;
+   text-align: center;
+   &.product-item--list{
+      min-width: 100%;
+      display: flex;
+      text-align: left;
+      margin-bottom: 35px;
+      &:hover{
+         .product-item__link-box{
+            transform: translateY(-270%);
+         }
+      }
+      .product-item__img-box{
+         height: 250px;
+         min-width: 200px;
+         margin-bottom: 0;
+         img{
+            height: 250px;
+         }
+      }
+      .product-item__link-box{
+         background-color: transparent;
+         box-shadow: none;
+         width: 115px;
+         bottom: auto;
+         .product-item__link{
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         }
+         .product-item__link--line{
+            display: none;
+         }
+      }
+      .product-item__content-box{
+         display: block;
+      }
+      .product-item__box{
+         display: flex;
+         flex-wrap: wrap;
+      }
+      .product-item__title{
+         text-align: left;
+         order: -1;
+         width: 100%;
+         padding: 0;
+         margin-bottom: 10px;
+      }
+      .product-item__text{
+         margin-bottom: 25px;
+      }
+      .product-item__btn{
+         border: none;
+         color: #fff;
+         padding: 11px 40px;
+         background-color: $title;
+         cursor: pointer;
+         &:hover{
+            background-color: $accent;
+            box-shadow: 0 7px 20px 0 rgba(255,17,48,0.3);
+         }
+      }
+      .product-item__price{
+         order: -1;
+         margin-left: -12px;
+      }
+      .star{
+         margin-left: 23px;
+         margin-top: 5px;
+      }
+      .product-item__wrapper-box{
+         padding: 30px 40px;
+         border: 1px solid #ececec;
+         border-left: none;
+      }
+   }
+   &__content-box{
+      display: none;
+   }
    &__img-box{
       position: relative;
       height: 370px;
@@ -412,6 +494,7 @@
       padding: 15px 0 20px;
       font-size: 22px;
       line-height: 26px;
+      text-align: center;
    }
    &__price{
       display: flex;
@@ -888,6 +971,97 @@
       justify-content: space-between;
       padding: 16px 20px;
    }
+}
+
+.filter-popular{
+   &__label{
+      display: inline-block;
+      margin-bottom: 20px;
+      margin-right: -4px;
+      padding: 3px 0;
+      cursor: pointer;
+   }
+   &__input{
+      @extend %checkbox-hidden;
+      &:checked + .filter-popular__checkbox{
+         background-color: $accent;
+         border-color: $accent;
+         color: #fff;
+      }
+   }
+   &__checkbox{
+      border: 1px solid $default;
+      padding: 10px 20px;
+   }
+}
+
+.shop-content{
+   width: 100%;
+   &__inner{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #ececec;
+      &.product-item{
+         margin-bottom: 40px;
+      }
+   }
+   &__filter{
+      border: 1px solid #ececec;
+      padding: 20px 25px 20px 30px;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+   &__filter-buttons{
+      display: flex;
+      align-items: center;
+      line-height: 0;
+   }
+   &__filter-btn{
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      margin-left: 15px;
+      cursor: pointer;
+      line-height: 0;
+      &.shop-content__filter-btn--active{
+         path{
+            fill: $accent;
+         }
+      }
+      &.shop-content__filter-btn--list{
+         margin-top: 1px;
+      }
+   }
+}
+
+.jq-selectbox__select {
+   margin-left: 30px;
+   height: 32px;
+   padding: 0 30px 0 0;
+   border: none;
+   background: transparent;
+   box-shadow: none;
+   @extend %quicksand-500;
+   color: $default;
+   text-shadow: none;
+   &:hover{
+      background-color: transparent;
+   }
+}
+.jq-selectbox__trigger{
+   border-left: none;
+}
+.jq-selectbox__trigger-arrow {
+   position: absolute;
+   top: 10px;
+   right: 12px;
+   width: 12px;
+   height: 8px;
+   border: none;
+   background-image: url("../images/icons/angle_down.svg");
 }
 
 footer {
