@@ -1064,6 +1064,246 @@
    background-image: url("../images/icons/angle_down.svg");
 }
 
+.clothes{
+   padding: 120px 0 60px;
+   border-bottom: 1px solid #f0f0f0;
+}
+
+.clothes-item{
+   &__inner{
+      display: flex;
+   }
+   &__slide{
+      width: 730px;
+      margin-right: 70px;
+   }
+   &__content{
+      width: 370px;
+   }
+   &__title{
+      margin-bottom: 20px;
+      color: $title;
+      font-size: 22px;
+      @extend %roboto-500;
+   }
+   &__box{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+   }
+   &__price{
+      display: flex;
+      @extend %quicksand-500;
+      font-size: 18px;
+      line-height: 34px;
+      &--new{
+         color: $title;
+      }
+      &--old{
+         color: #ccccce;
+         padding-left: 15px;
+      }
+   }
+   &__star{
+      display: flex;
+      align-items: center;
+      span{
+         padding-left: 8px;
+         color: $title;
+         font-size: 18px;
+      }
+   }
+   &__text{
+      margin-bottom: 40px;
+      span{
+         display: block;
+         color: $title;
+         @extend %roboto-400;
+         font-size: 18px;
+      }
+   }
+   &__btn{
+      @extend %btn;
+      border: none;
+      margin-left: 15px;
+      cursor: pointer;
+   }
+}
+
+.jq-number__field {
+   width: 114px;
+   border: 1px solid #f0f0f0;
+   transform: translateY(1px);
+}
+
+.jq-number__field input {
+   width: 100%;
+   height: 50px;
+   outline: none;
+   @extend %quicksand-500;
+   color: $title;
+   text-align: center;
+}
+.jq-number{
+   padding: 0;
+   position: relative;
+}
+
+.jq-number__spin {
+   position: absolute;
+   cursor: pointer;
+   width: 12px;
+   height: 12px;
+   top: 50%;
+   transform: translateY(-50%);
+}
+
+.jq-number__spin.minus{
+   left: 15px;
+}
+.jq-number__spin.plus{
+    right: 15px;
+}
+
+.jq-number__spin::after {
+   content: "";
+   position: absolute;
+   top: 6px;
+   left: 0;
+   width: 12px;
+   height: 1px;
+   background-color: $title;
+}
+
+.jq-number__spin.plus::before{
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 6px;
+   width: 1px;
+   height: 12px;
+   background-color: $title;
+}
+
+.clothes-slide{
+   display: flex;
+   .slick-vertical .slick-slide{
+      height: 140px;
+      margin-bottom: 30px;
+   }
+   &__small{
+      width: 140px;
+      margin-right: 30px;
+   }
+   &__small-item{
+      margin-bottom: 30px;
+      width: 140px;
+      height: 140px;
+      cursor: pointer;
+      img{
+         width: 140px;
+         height: 140px;
+         object-fit: cover;
+      }
+   }
+   &__big{
+      width: 560px;
+      img{
+         width: 560px;
+         height: 650px;
+         object-fit: cover;
+      }
+   }
+}
+
+.clothes-info{
+   &__list{
+      margin-bottom: 30px;
+   }
+   &__item{
+      margin-bottom: 5px;
+      display: flex;
+   }
+   &__title{
+      min-width: 100px;
+      color: $title;
+   }
+   &__link{
+      path{
+         fill: $default;
+      }
+      & + .clothes-info__link{
+         margin-left: 15px;
+      }
+      &:hover{
+         path{
+            fill: $accent;
+         }
+      }
+   }
+}
+
+.clothes-filter{
+   &__color{
+      margin-bottom: 35px;
+      label{
+         margin-right: 3px;
+      }
+   }
+   &__color-input{
+      @extend %radio-hidden;
+      &:checked{
+         & + .clothes-filter__color-checkbox{
+            border-color: $accent;
+         }
+      }
+   }
+   &__color-checkbox{
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      border: 1px solid #ccccce;
+      position: relative;
+      display: inline-block;
+      span{
+         display: inline-block;
+         position: absolute;
+         width: 16px;
+         height: 16px;
+         top: 3px;
+         left: 3px;
+      }
+   }
+   &__color-title,
+   &__size-title{
+      margin-bottom: 5px;
+      font-size: 18px;
+      @extend %roboto-400;
+      color: $title;
+   }
+   &__size{
+      margin-bottom: 35px;
+      label{
+         margin-right: 3px;
+         display: inline-block;
+      }
+   }
+   &__size-input{
+      @extend %radio-hidden;
+      &:checked{
+         & + .clothes-filter__size-checkbox{
+            border-color: $accent;
+         }
+      }
+   }
+   &__size-checkbox{
+      display: inline-block;
+      padding: 4px 10px;
+      border: 1px solid #ccccce;
+      cursor: pointer;
+   }
+}
+
 footer {
    background-color: $bg;
 }

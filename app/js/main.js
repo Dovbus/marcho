@@ -1,5 +1,21 @@
 $(function () {
 
+   $('.clothes-slide__small').slick({
+      asNavFor: '.clothes-slide__big',
+      focusOnSelect: true,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      vertical: true,
+      draggable: false,
+   });
+   $('.clothes-slide__big').slick({
+      asNavFor: '.clothes-slide__small',
+      draggable: false,
+      arrows: false,
+      fade: true,
+   });
+
+
    $('.shop-content__filter-btn').on('click', function (){
       $('.shop-content__filter-btn').removeClass('shop-content__filter-btn--active');
       $(this).addClass('shop-content__filter-btn--active');
@@ -13,7 +29,7 @@ $(function () {
       $('.product-item').removeClass('product-item--list');
    })
 
-   $('.select-style').styler();
+   $('.select-style, .clothes-item__num').styler();
 
    $('.filter-price__input').ionRangeSlider({
       type: "double",
