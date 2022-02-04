@@ -125,16 +125,4 @@ $(function () {
 
    const deadline = $('.promo__clock').attr('data-time');
    initializeClock('.promo__clock', deadline);
-
-   $('.video-fashion__play-img').on('mouseover', function (){
-      setTimeout(() => {
-         $('.video-fashion__play-img').src = '../images/icons/play-hover.png';
-      }, 100)
-   });
-
-   $('.video-fashion__play-img').on('mouseout', function (){
-      setTimeout(() => {
-         $('.video-fashion__play-img').src = '../images/icons/play-btn.png';
-      }, 100)
-   })
 })
