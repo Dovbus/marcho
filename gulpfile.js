@@ -1,9 +1,11 @@
-import gulp from 'gulp'
+import gulp from 'gulp';
 import imagemin from 'gulp-imagemin';
 import concat from 'gulp-concat';
 import sync from 'browser-sync';
 const browserSync = sync.create();
 import uglify from 'gulp-uglify';
+import  nunjucksRender from 'gulp-nunjucks-render';
+import  rename from 'gulp-rename';
 import del from 'del';
 import autoprefixer from 'gulp-autoprefixer';
 import dartSass from 'sass';
@@ -19,10 +21,20 @@ function browsersync() {
    })
 }
 
+function nunjucks(){
+   return gulp.src('app/*.njk')
+       .pipe(nunjucksRender())
+       .pipe(gulp.dest('app'))
+       .pipe(browserSync.stream())
+}
+
 function styles() {
-   return gulp.src("app/scss/style.scss")
+   return gulp.src("app/scss/*.scss")
       .pipe(scss({ outputStyle: "compressed" }))
-      .pipe(concat("style.min.css"))
+      // .pipe(concat())
+       .pipe(rename({
+          suffix: '.min'
+       }))
       .pipe(
          autoprefixer({
             overrideBrowserslist: ["last 10 versions"],
@@ -67,7 +79,8 @@ function cleanDist() {
 }
 
 function watching() {
-   gulp.watch(["app/scss/**/*.scss"], styles)
+   gulp.watch(["app/scss/**/*.scss"], styles);
+   gulp.watch(["app/*.njk"], nunjucks);
    gulp.watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts)
    gulp.watch(['app/**/*.html']).on('change', browserSync.reload)
 }
@@ -79,8 +92,9 @@ export const scriptsRun = scripts;
 export const browsersyncRun = browsersync;
 export const watchRun = watching;
 export const imagesRun = images;
+export const nunjucksRun = nunjucks;
 export const cleanDistRun = cleanDist;
-export const buildRun = gulp.series(cleanDist, images, build)
+export const buildRun = gulp.series(cleanDistRun, imagesRun, build)
 
 
-export const defaultrun = gulp.parallel(styles, scripts, browsersync, watching)
+export const defaultrun = gulp.parallel(nunjucksRun, styles, scripts, browsersyncRun, watching)

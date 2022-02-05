@@ -1,0 +1,61 @@
+.video-fashion {
+  background-color: $bg;
+  background-image: url("../images/decor/pattern.png");
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  padding: 125px 0;
+  &__inner {
+    display: flex;
+  }
+  &__popup {
+    margin-right: 60px;
+    max-width: 530px;
+    width: 100%;
+    height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 0 20px;
+  }
+  &__play {
+    cursor: pointer;
+  }
+  &__play-img{
+    transition: all 0.3s;
+  }
+  &__content {
+    max-width: 570px;
+  }
+  &__subtitle {
+    padding-top: 75px;
+    @extend %quicksand-500;
+    font-size: 22px;
+    line-height: 26px;
+    text-transform: uppercase;
+    color: $accent;
+    margin-bottom: 15px;
+  }
+  &__title {
+    text-align: left;
+    @extend %roboto-700;
+    font-size: 48px;
+    line-height: 26px;
+    color: $title;
+    margin-bottom: 30px;
+  }
+  &__text {
+    margin-bottom: 55px;
+  }
+  &__link {
+    @extend %btn;
+    &:hover{
+      background-color: #fff;
+      color: $accent;
+      @extend %roboto-700;
+    }
+  }
+}
