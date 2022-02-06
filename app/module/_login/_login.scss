@@ -1,12 +1,12 @@
-.modal{
+.modal {
   padding-top: 100px;
   max-width: 570px;
   margin: 0 auto 115px;
-  &__links{
+  &__links {
     text-align: center;
     margin-bottom: 40px;
   }
-  &__link{
+  &__link {
     @extend %roboto-400;
     font-size: 22px;
     line-height: 1.2;
@@ -14,15 +14,15 @@
     text-transform: uppercase;
     margin: 0 30px;
   }
-  &__link--active{
+  &__link--active {
     @extend %roboto-700;
     color: $accent;
   }
-  &__label{
+  &__label {
     display: block;
     margin-bottom: 30px;
   }
-  &__input{
+  &__input {
     display: block;
     width: 100%;
     border: none;
@@ -31,7 +31,7 @@
     height: 60px;
     padding: 0 15px;
   }
-  &__btn{
+  &__btn {
     display: block;
     background-color: #292929;
     @extend %roboto-400;
@@ -44,12 +44,18 @@
     border: none;
     cursor: pointer;
   }
-  &__error{
+  &__error {
     margin-top: 12px;
     color: $accent;
     display: inline-block;
   }
-  &__text{
+  &__text {
     margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 375px) {
+  .modal__link {
+    margin: 0 20px;
   }
 }

@@ -1,9 +1,41 @@
-.partners{
+.partners {
   padding-top: 75px;
-  &__list{
+  &__list {
     height: 170px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+}
+
+@media (max-width: 620px) {
+  .partners {
+    padding-top: 60px 0;
+    &__list {
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    &__item {
+      margin: 10px 35px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .partners {
+    &__item {
+      margin: 10px 21px;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .partners {
+    &__item {
+      margin: 10px 25px;
+    }
   }
 }

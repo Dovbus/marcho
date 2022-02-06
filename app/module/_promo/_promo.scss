@@ -1,18 +1,18 @@
-.promo{
+.promo {
   background-color: #f6f6f6;
-  &__inner{
+  &__inner {
     display: flex;
   }
-  &__image{
+  &__image {
     margin-right: 30px;
   }
-  &__info{
+  &__info {
     padding: 70px 0 70px;
     text-align: center;
     max-width: 570px;
     width: 100%;
   }
-  &__subtitle{
+  &__subtitle {
     @extend %quicksand-500;
     font-size: 22px;
     line-height: 26px;
@@ -20,7 +20,7 @@
     color: $accent;
     padding-bottom: 20px;
   }
-  &__link{
+  &__link {
     text-transform: uppercase;
     color: $title;
     display: inline-block;
@@ -28,12 +28,12 @@
     padding: 14px 27px;
     margin-top: 55px;
   }
-  &__clock{
+  &__clock {
     display: flex;
     justify-content: space-between;
     margin-top: 55px;
   }
-  &__clock-item{
+  &__clock-item {
     background-color: #fff;
     width: 120px;
     height: 120px;
@@ -42,12 +42,39 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    box-shadow: 0 10px 40px 0 rgba(187,187,187,0.3);
-    span{
+    box-shadow: 0 10px 40px 0 rgba(187, 187, 187, 0.3);
+    span {
       font-size: 48px;
       @extend %roboto-700;
       margin: 10px 0 7px;
       color: $title;
+    }
+  }
+}
+
+@media (max-width: 620px) {
+  .promo {
+    padding: 60px 0;
+    &__clock {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    &__clock-item {
+      margin: 20px 35px;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .promo {
+    &__clock {
+      margin-top: 30px;
+    }
+    &__clock-item {
+      margin: 8px;
+    }
+    &__link {
+      margin-top: 30px;
     }
   }
 }

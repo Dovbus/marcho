@@ -79,7 +79,7 @@ function cleanDist() {
 }
 
 function watching() {
-   gulp.watch(["app/scss/**/*.scss"], styles);
+   gulp.watch(["app/**/*.scss"], styles);
    gulp.watch(["app/*.njk"], nunjucks);
    gulp.watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts)
    gulp.watch(['app/**/*.html']).on('change', browserSync.reload)
