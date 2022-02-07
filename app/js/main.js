@@ -8,6 +8,10 @@ $(function () {
     $('.footer-top__list').slideToggle();
   })
 
+  $('.shop__filter-btn').on('click', function () {
+    $('.shop__filters').slideToggle()
+  })
+
   $('.blog-page__slider').slick({
     prevArrow: '<button type="button" class="slick-prev"><svg xmlns="http://www.w3.org/2000/svg" width="9px" height="14px" viewBox="0 0 9 14" version="1.1"><g><path d="M 1.113281 6.535156 L 5.894531 2.816406 C 6.226562 2.558594 6.761719\n' +
       '2.558594 7.085938 2.816406 L 7.882812 3.433594 C 8.210938 3.691406 8.210938 4.105469 7.882812 4.359375 L 4.496094 7 L 7.886719\n' +
@@ -40,6 +44,14 @@ $(function () {
     draggable: false,
     arrows: false,
     fade: true,
+    responsive: [
+      {
+        breakpoint: 1051,
+        settings: {
+          draggable: true,
+        }
+      }
+    ]
   });
 
 
